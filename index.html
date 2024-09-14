@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSQ Tip Out Calculator</title>
+</head>
+<body>
+    <h1>DECLARE YOUR TIPS CORRECTLY!</h1>
+    <p>Don't make James angry...</p>
+    <form>
+        <label for = "liquor">Liquor Sales: </label>
+        <input type = "number" id = "liquor" name = "liquor" step = "any">
+
+        <label for = "liquor"> Food Sales: </label>
+        <input type = "number" id = "food" name = "food" step = "any">
+        
+
+        <label for = 'totalSales'> Total Net Sales: </label>
+        <input type = "number" id="totalSales" name="totalSales" step ="any">
+
+        <label for = 'noncashTips'> Non-Cash Tips: </label>
+        <input type = "number" id = "noncashtips" name = "noncashtips" step = "any">
+
+        <button type="button" onclick="calculate()">Calculate</button>
+
+    </form>
+
+    <div class="result" id="result"></div>
+
+
+    <script>
+        function calculate(){
+            var foodSales = parseFloat(document.getElementById('food').value);
+            var liquorSales = parseFloat(document.getElementById('liquor').value);
+            var totalSales = parseFloat(document.getElementById('totalSales').value);
+            var noncashTips = parseFloat(document.getElementById('noncashtips').value);
+
+            var foodTip = foodSales * 0.03;
+            var barTip = liquorSales * 0.03;
+            var busserTip = totalSales * 0.015;
+            var tipOut = foodTip + barTip + busserTip;
+
+            var result = noncashTips - tipOut;
+
+
+            document.getElementById('result').innerText = 
+            `You should declare $${result.toFixed(2)}`;
+            
+        }
+    </script>
+
+
+
+    
+</body>
+
+
+</html>
