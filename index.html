@@ -4,28 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TSQ Tip Out Calculator</title>
+    <link rel ="stylesheet" href="style.css">
 </head>
 <body>
     <h1>DECLARE YOUR TIPS CORRECTLY!</h1>
-    <br>
-    <p>Don't make James angry...</p>
+    <h2>Don't make James angry...</h2>
+
+    <div class ="inputs">
     <form>
-        <label for = "liquor">Liquor Sales: </label>
-        <input type = "number" id = "liquor" name = "liquor" step = "any"> <br>
+        <label for = "liquor" class = "input">LIQUOR SALES: </label>
+        <input type = "number" id = "liquor" name = "liquor" step = "any"><br>
 
-        <label for = "liquor"> Food Sales: </label>
-        <input type = "number" id = "food" name = "food" step = "any"> <br>
+        <label for = "liquor" class = "input">FOOD SALES: </label>
+        <input type = "number" id = "food" name = "food" step = "any"><br>
         
+        <label for = 'totalSales' class = "input">TOTAL NET SALES: </label>
+        <input type = "number" id="totalSales" name="totalSales" step ="any"><br>
 
-        <label for = 'totalSales'> Total Net Sales: </label>
-        <input type = "number" id="totalSales" name="totalSales" step ="any"> <br>
+        <label for = 'noncashTips' class = "input">NON-CASH TIPS: </label>
+        <input type = "number" id = "noncashtips" name = "noncashtips" step = "any"><br>
 
-        <label for = 'noncashTips'> Non-Cash Tips: </label>
-        <input type = "number" id = "noncashtips" name = "noncashtips" step = "any"> <br>
 
-        <button type="button" onclick="calculate()">CALCULATE!</button>
+        <button type="button" onclick="calculate()">CALCULATE</button>
 
     </form>
+    
+    </div>
 
     <div class="result" id="result"></div>
 
@@ -44,9 +48,15 @@
 
             var result = noncashTips - tipOut;
 
+            if (isNaN(foodSales) || isNaN(liquorSales) || isNaN(totalSales) || isNaN(noncashTips)) {
+                document.getElementById('result').innerText =
+                'Please enter valid numbers in all fields.';
+                return; // Exit the function
+            }
+
 
             document.getElementById('result').innerText = 
-            `You should declare $${result.toFixed(2)}. Your tip out was $${tipOut.toFixed(2)}`;
+            `You should declare $${result.toFixed(2)}.Your tip out was $${tipOut.toFixed(2)}`;
             
         }
     </script>
