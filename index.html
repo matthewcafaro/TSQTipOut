@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>DECLARE YOUR TIPS CORRECTLY!</h1>
+    <br>
     <p>Don't make James angry...</p>
     <form>
         <label for = "liquor">Liquor Sales: </label>
@@ -22,7 +23,7 @@
         <label for = 'noncashTips'> Non-Cash Tips: </label>
         <input type = "number" id = "noncashtips" name = "noncashtips" step = "any"> <br>
 
-        <button type="button" onclick="calculate()">Calculate</button>
+        <button type="button" onclick="calculate()">CALCULATE!</button>
 
     </form>
 
@@ -45,7 +46,7 @@
 
 
             document.getElementById('result').innerText = 
-            `You should declare $${result.toFixed(2)}`;
+            `You should declare $${result.toFixed(2)}. Your tip out was $${tipOut.toFixed(2)}`;
             
         }
     </script>
