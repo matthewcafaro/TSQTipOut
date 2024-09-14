@@ -40,6 +40,10 @@ h2{
       -1px 1px 0 #000;
 }
 
+input{
+    margin-bottom: 15px;
+}
+
 input[type="number"]{
     height: 21px;
     font-size:21px;
@@ -48,7 +52,6 @@ input[type="number"]{
     width: 70px;
     background-color: darkgray;
     font-family: monospace;
-    margin-bottom: 5px;
 }
 
 label{
