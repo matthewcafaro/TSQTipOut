@@ -3,35 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TSQ Tip Out Calculator</title>
+    <title>TSQ TIP-OUT CALCULATOR</title>
     <link rel ="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>DECLARE YOUR TIPS CORRECTLY!</h1>
-    <h2>Don't make James angry...</h2>
+    <h1>TSQ TIP-OUT CALCULATOR</h1>
+    <h2>Make sure you're using proper water service...</h2>
 
     <div class ="inputs">
-    <form>
-        <label for = "liquor" class = "input">LIQUOR SALES: </label>
-        <input type = "number" id = "liquor" name = "liquor" step = "any"><br>
+        <form>
+            <label for = 'draft' class = "input">DRAFT BEER: </label>
+            <input type = "number" id = "draft" name = "draft" step = "any"><br>
 
-        <label for = "liquor" class = "input">FOOD SALES: </label>
-        <input type = "number" id = "food" name = "food" step = "any"><br>
-        
-        <label for = 'totalSales' class = "input">TOTAL NET SALES: </label>
-        <input type = "number" id="totalSales" name="totalSales" step ="any"><br>
+            <label for = "food" class = "input">FOOD: </label>
+            <input type = "number" id = "food" name = "food" step = "any"><br>
 
-        <label for = 'noncashTips' class = "input">NON-CASH TIPS: </label>
-        <input type = "number" id = "noncashtips" name = "noncashtips" step = "any"><br>
+            <label for = "liquor" class = "input">LIQUOR: </label>
+            <input type = "number" id = "liquor" name = "liquor" step = "any"><br>
 
+            <label for = 'wine' class = "input">WINE: </label>
+            <input type = "number" id = "wine" name = "wine" step = "any"><br>
 
-        <button type="button" onclick="calculate()">CALCULATE</button>
+            <label for = 'totalSales' class = "input">TOTAL NET SALES: </label>
+            <input type = "number" id="totalSales" name="totalSales" step ="any"><br>
 
-    </form>
+            <label for = 'noncashTips' class = "input">NON-CASH TIPS: </label>
+            <input type = "number" id = "noncashtips" name = "noncashtips" step = "any"><br>
+
+            <button type="button" onclick="calculate()">CALCULATE</button>
+
+        </form>
     
     </div>
 
     <div class="result" id="result"></div>
+
+
+    <div class ="message">THANK YOU 
+        <span style="color: #00c1c1;
+        text-shadow: 
+      0.3vw 0.3vw 0 #000000, 
+      -0.1vw -0.1vw 0 #000000,  
+      0.1vw -0.1vw 0 #000000, 
+      -0.1vw 0.1vw 0 #000000;">KENDRA</span>!!!</div>
 
 
     <script>
@@ -40,9 +54,12 @@
             var liquorSales = parseFloat(document.getElementById('liquor').value);
             var totalSales = parseFloat(document.getElementById('totalSales').value);
             var noncashTips = parseFloat(document.getElementById('noncashtips').value);
+            var draft = parseFloat(document.getElementById('draft').value);
+            var wine = parseFloat(document.getElementById('wine').value);
 
+            var alcohol = liquorSales + draft + wine
             var foodTip = foodSales * 0.03;
-            var barTip = liquorSales * 0.03;
+            var barTip = alcohol * 0.03;
             var busserTip = totalSales * 0.015;
             var tipOut = foodTip + barTip + busserTip;
 
@@ -50,13 +67,13 @@
 
             if (isNaN(foodSales) || isNaN(liquorSales) || isNaN(totalSales) || isNaN(noncashTips)) {
                 document.getElementById('result').innerText =
-                'Please enter valid numbers in all fields.';
+                'PLEASE ENTER VALID NUMBERS IN ALL FIELDS';
                 return; // Exit the function
             }
 
 
             document.getElementById('result').innerText = 
-            `You should declare $${result.toFixed(2)}.Your tip out was $${tipOut.toFixed(2)}`;
+            `YOU SHOULD DECLARE $${result.toFixed(2)}.YOUR TIP OUT WAS $${tipOut.toFixed(2)}`;
             
         }
     </script>
